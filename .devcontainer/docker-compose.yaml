@@ -1,0 +1,47 @@
+services:
+  mumble-homepage-api:
+    build:
+      dockerfile: ./Dockerfile
+    image: mumble-homepage-api
+    container_name: mumble-homepage-api
+    stdin_open: true
+    tty: true
+    volumes:
+      - ../app:/app
+    ports:
+      - 127.0.0.1:6504:6504
+    environment:
+      - ICE_HOST=mumble #Container name or IP Adress to reach ICE host (defaults to localhost)
+      - ICE_PORT=6502 #Port of the Mumble servers Ice interface (defaults to 6502)
+      - ICE_SECRET_READ= #Ice read secret defined in mumble config (defaults to "")
+      - AFK_KEYWORD=afk #A string that is contained in your mumble AFK channel name (defaults to "afk")
+      - AFK_THRESHOLD=1800 #The time in seconds of inactivity until a user gets flagged as afk (defaults to 1800)
+      - API_PORT=6504 #The port you want this API running on (defaults to 6504, if you change this also considder changing mapped docker ports)
+      - API_TOKEN= #If you set this, the API will only respond when given this token via header (defaults to "")
+      - API_TOKEN_HEADER_NAME=X-API-Token #Lets you customize the name of the header for the API Token auth (defaults to "X-API-Token")
+
+  mumble:
+    image: mumblevoip/mumble-server:latest
+    container_name: mumble
+    ports:
+      - 127.0.0.1:64738:64738
+      - 127.0.0.1:64738:64738/udp
+      - 127.0.0.1:6502:6502
+    environment:
+      - MUMBLE_CONFIG_serverpassword=admin
+      - MUMBLE_CONFIG_users=20
+      - MUMBLE_CONFIG_allowping=true
+      - MUMBLE_CONFIG_registerName=Testserver
+      - MUMBLE_CONFIG_ice=tcp -h 0.0.0.0 -p 6502
+      #- MUMBLE_CONFIG_icesecretread=secretreadcode
+
+  homepage:
+    image: ghcr.io/gethomepage/homepage:latest
+    container_name: homepage
+    environment:
+      HOMEPAGE_ALLOWED_HOSTS: "*"
+    ports:
+      - 127.0.0.1:3000:3000
+    volumes:
+      - ../data/homepage/config:/app/config
+    
