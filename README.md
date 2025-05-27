@@ -155,6 +155,51 @@ icesecretread=YourSuperSecretMaximumSecurityCode
           format: text
 ```
 >This is set inside homepage config `services.yaml` file or with docker auto discovery over labels
+>`ip` and `port` inside `url` needs to be adapted on your use case
+
+**You can also use [Automatic service discovery](https://gethomepage.dev/configs/docker/#automatic-service-discovery) labels with `docker-compose.yaml`:**
+```yaml
+labels:
+  homepage.group: "Services" 
+  homepage.name: "Mumble"
+  homepage.description: "Voice Chat"
+  homepage.icon: "mumble.png"
+  homepage.href: "mumble://yourIP"
+
+  # Widget 1
+  homepage.widgets.0.type: "customapi"
+  homepage.widgets.0.url: "http://yourIP:6504/api/status"
+  homepage.widgets.0.refreshInterval: 3000
+  homepage.widgets.0.mappings.0.field: "status"
+  homepage.widgets.0.mappings.0.label: "Server Status"
+  homepage.widgets.0.mappings.0.remap.0.value: "online"
+  homepage.widgets.0.mappings.0.remap.0.to: "Online"
+  homepage.widgets.0.mappings.0.remap.1.value: "offline"
+  homepage.widgets.0.mappings.0.remap.1.to: "Offline"
+  homepage.widgets.0.mappings.1.field: "total_users_online"
+  homepage.widgets.0.mappings.1.label: "Online Users"
+
+  # Widget 2
+  homepage.widgets.1.type: "customapi"
+  homepage.widgets.1.url: "http://yourIP:6504/api/status"
+  homepage.widgets.1.refreshInterval: 3000
+  homepage.widgets.1.display: "list"
+  homepage.widgets.1.mappings.0.field: "status"
+  homepage.widgets.1.mappings.0.label: "User"
+  homepage.widgets.1.mappings.0.format: "text"
+  homepage.widgets.1.mappings.0.remap.0.any: "true"
+  homepage.widgets.1.mappings.0.remap.0.to: "Channel"
+
+  # Widget 3
+  homepage.widgets.2.type: "customapi"
+  homepage.widgets.2.url: "http://yourIP:6504/api/status"
+  homepage.widgets.2.refreshInterval: 3000
+  homepage.widgets.2.display: "dynamic-list"
+  homepage.widgets.2.mappings.items: "users"
+  homepage.widgets.2.mappings.name: "mumble-id"
+  homepage.widgets.2.mappings.label: "channel"
+  homepage.widgets.2.mappings.format: "text"
+```
 ---
 
 ## Developing
