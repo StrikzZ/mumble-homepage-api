@@ -61,7 +61,7 @@ services:
    ```
 
 
-> If you are just using this application and are not planning on testing or contributing on it, the "data" and ".devcontainer" folders can safely be deleted.
+> If you are just using this application and are not planning on testing or contributing on it, the `data` and `.devcontainer` folders can safely be deleted.
 ---
 
 ## Initial Configuration
