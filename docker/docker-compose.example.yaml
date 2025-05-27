@@ -1,0 +1,31 @@
+services:
+  mumble-homepage-api:
+    image: strikzz/mumble-homepage-api:latest
+    container_name: mumble-homepage-api
+    ports:
+      - 6504:6504 #Also change this when changing API_PORT
+    environment:
+      - ICE_HOST=localhost #If you have mumble in the same docker network you can also use container names instead of IPs!
+      - ICE_PORT=6502
+      - ICE_SECRET_READ=VerySecretYaYa #Please dont make this 1234 :D
+      - AFK_KEYWORD=afk
+      - AFK_THRESHOLD=1800
+      - API_PORT=6504
+      - API_TOKEN=EvenMoreSecretDayum #Please also dont make this 12345!
+      - API_TOKEN_HEADER_NAME=X-API-Token
+
+
+#  mumble:
+#    image: mumblevoip/mumble-server:latest
+#    container_name: mumble
+#    ports:
+#      - 127.0.0.1:64738:64738
+#      - 127.0.0.1:64738:64738/udp
+#      - 127.0.0.1:6502:6502
+#    environment:
+#      - MUMBLE_CONFIG_serverpassword=admin
+#      - MUMBLE_CONFIG_users=20
+#      - MUMBLE_CONFIG_allowping=true
+#      - MUMBLE_CONFIG_registerName=Testserver
+#      - MUMBLE_CONFIG_ice=tcp -h 0.0.0.0 -p 6502
+#      - MUMBLE_CONFIG_icesecretread=VerySecretYaYa
