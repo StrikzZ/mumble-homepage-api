@@ -157,7 +157,7 @@ icesecretread=YourSuperSecretMaximumSecurityCode
 >This is set inside homepage config `services.yaml` file or with docker auto discovery over labels
 >`ip` and `port` inside `url` needs to be adapted on your use case
 
-**You can also use [Automatic service discovery](https://gethomepage.dev/configs/docker/#automatic-service-discovery) labels with `docker-compose.yaml`:**
+**You can also use [Automatic Service Discovery](https://gethomepage.dev/configs/docker/#automatic-service-discovery) labels with `docker-compose.yaml`:**
 ```yaml
 labels:
   homepage.group: "Services" 
