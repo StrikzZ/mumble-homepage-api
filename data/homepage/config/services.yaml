@@ -1,0 +1,59 @@
+---
+# For configuration options and examples, please see:
+# https://gethomepage.dev/configs/services/
+
+- My First Group:
+    - My First Service:
+        href: http://localhost/
+        description: Homepage is awesome
+    - Mumble:
+        description: test
+        icon: mumble.png
+        widgets:
+          -  type: customapi
+             url: http://mumble-homepage-api:6504/api/status
+             refreshInterval: 3000
+             mappings:
+               - field: status
+                 label: Server Status
+                 remap:
+                   - value: online
+                     to: Online
+                   - value: offline
+                     to: Offline
+               - field: total_users_online
+                 label: Online Users
+          -  type: customapi
+             url: http://mumble-homepage-api:6504/api/status
+             refreshInterval: 3000
+             display: list
+             mappings:
+               - field: status
+                 label: Nutzer
+                 format: text
+                 remap:
+                   - any: true
+                     to: Kanal
+                 
+          -  type: customapi
+             url: http://mumble-homepage-api:6504/api/status
+             refreshInterval: 3000
+             display: dynamic-list
+             mappings:
+               items: users
+               name: mumble-id
+               label: channel
+               format: text
+               remap:
+                 - value:
+                   to: Peter
+               
+- My Second Group:
+    - My Second Service:
+        href: http://localhost/
+        description: Homepage is the best
+
+- My Third Group:
+    - My Third Service:
+        href: http://localhost/
+        description: Homepage is 😎
