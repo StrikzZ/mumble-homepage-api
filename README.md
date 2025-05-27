@@ -25,7 +25,7 @@ docker run -d --name mumble-homepage-api \
   -e ICE_SECRET_READ=YourIceReadSecret \
   -e API_TOKEN=yourTokenHere \
   -p 6504:6504 \
-  ghcr.io/StrikzZ/mumble-homepage-api:latest
+  strikzz/mumble-homepage-api:latest
 ```
 
 ### **Docker Compose (Recommended)**
