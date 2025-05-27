@@ -28,20 +28,21 @@ docker run -d --name mumble-homepage-api \
   ghcr.io/StrikzZ/mumble-homepage-api:latest
 ```
 
-### **Docker Compose**
+### **Docker Compose (Recommended)**
 
 ```yaml
 services:
   mumble-homepage-api:
-    image: ghcr.io/StrikzZ/mumble-homepage-api:latest
+    image: strikzz/mumble-homepage-api:latest
     environment:
-      - ICE_HOST=mumble
+      - ICE_HOST=localhost
       - ICE_PORT=6502
       - ICE_SECRET_READ=secretreadcode
       - API_TOKEN=yourTokenHere
     ports:
       - 6504:6504
 ```
+> For a full example stack, see [docker/docker-compose.example.yaml](./docker/docker-compose.example.yaml)
 
 ### **From Source**
 >### Prerequisites
