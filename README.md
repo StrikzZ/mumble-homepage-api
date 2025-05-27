@@ -1,6 +1,6 @@
 <h1 align="center">Mumble Homepage API</h1>
 <p align="center">
-  <img src="https://i.imgur.com/3FrjSMT.png" alt="Mumble Homepage API" width="600"/>
+  <img src="https://i.imgur.com/azwsNJm.png" alt="Mumble Homepage API" width="800"/>
 </p>
 
 <p align="center">
