@@ -36,7 +36,18 @@ services:
 ```
 
 ### **From Source**
+>### Prerequisites
 
+You need Python >=3.x, pip, and the following build tools:
+- gcc, g++ (C/C++ compilers)
+- libssl-dev, libbz2-dev
+
+  **On Debian/Ubuntu:**
+  ```sh
+  sudo apt-get update
+  sudo apt-get install -y gcc g++ libssl-dev libbz2-dev
+  ```
+>### Setup
 1. **Clone or download the repository:**
    ```bash
    git clone https://github.com/StrikzZ/mumble-homepage-api.git
@@ -45,19 +56,20 @@ services:
    ```bash
    cd /path/to/mumble-homepage-api
    ```
-3. **Install dependencies (Python > 3.x and pip should be pre installed):**
+3. **Install dependencies:**
    ```bash
    pip install -r requirements.txt
    ```
 
-4. **Create an `.env` file file with your configuration (see below for all variables and weather u need it):**
+4. **Create an `.env` file with your configuration (see below for all variables and whether you need them):**
    ```bash
    touch .env
    ```
 
 5. **Start the API:**
    ```bash
-   start.sh
+   chmod +x start.sh
+   ./start.sh
    ```
 
 
