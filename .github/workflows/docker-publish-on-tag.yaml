@@ -33,5 +33,5 @@ jobs:
           file: ./docker/Dockerfile
           push: true
           tags: |
-            ${{ secrets.DOCKERHUB_USERNAME }}/dein-image:latest
-            ${{ secrets.DOCKERHUB_USERNAME }}/dein-image:${{ env.TAG_NAME }}
+            ${{ secrets.DOCKERHUB_USERNAME }}/mumble-homepage-api:latest
+            ${{ secrets.DOCKERHUB_USERNAME }}/mumble-homepage-api:${{ env.TAG_NAME }}
