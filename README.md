@@ -1,8 +1,16 @@
-# mumble-homepage-api
+<h1 align="center">Mumble Homepage API</h1>
+<p align="center">
+  <img src="https://i.imgur.com/3FrjSMT.png" alt="Mumble Homepage API" width="600"/>
+</p>
 
-> API middleware for integrating a Mumble server with [Homepage](https://gethomepage.dev/) via ICE interface.
+<p align="center">
+  <em>API middleware for integrating a Mumble server with <a href="https://gethomepage.dev/">Homepage</a> via ICE interface.</em>
+</p>
 
-A lightweight, self-hosted RESTful Python API that exposes user and server data from a Mumble server using the ICE protocol. Perfect as a backend for the [Homepage Custom API Widget](https://gethomepage.dev/widgets/services/customapi/).
+<p align="center">
+  A lightweight, self-hosted RESTful Python API that exposes user and server data from a Mumble server using the ICE protocol.<br>
+  Perfect as a backend for the <a href="https://gethomepage.dev/widgets/services/customapi/">Homepage Custom API Widget</a>.
+</p>
 
 ---
 
