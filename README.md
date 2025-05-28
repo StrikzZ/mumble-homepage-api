@@ -12,6 +12,11 @@
   Perfect as a backend for the <a href="https://gethomepage.dev/widgets/services/customapi/">Homepage Custom API Widget</a>.
 </p>
 
+<h2 align="center">Where it implements</h2>
+<p align="center">
+  <img src="https://i.imgur.com/OPhCSWZ.png" alt="Chart" width="700"/>
+</p>
+
 ---
 
 ## Installing / Getting Started
