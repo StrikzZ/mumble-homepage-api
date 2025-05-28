@@ -4,7 +4,7 @@
 </p>
 
 <p align="center">
-  <em>API middleware for integrating a Mumble server with <a href="https://gethomepage.dev/">Homepage</a> via ICE interface.</em>
+  <em>API middleware to integrate a Mumble server with <a href="https://gethomepage.dev/">Homepage</a> via ICE interface.</em>
 </p>
 
 <p align="center">
@@ -82,7 +82,7 @@ You need Python >=3.x, pip, and the following build tools:
    ```
 
 
-> If you are just using this application and are not planning on testing or contributing on it, the `data` and `.devcontainer` folders can safely be deleted.
+> If you are just using this application and are not planning on testing or contributing to it, the `data` and `.devcontainer` folders can safely be deleted.
 ---
 
 ## Initial Configuration
@@ -106,7 +106,7 @@ icesecretread=YourSuperSecretMaximumSecurityCode
 | AFK_KEYWORD          | String that is part of your mumble AFK channel name                   | `afk`           |
 | AFK_THRESHOLD        | Time (in seconds) before a user is considered AFK (idle)              | `1800`          |
 | API_PORT             | Port this API listens on                                              | `6504`          |
-| API_TOKEN            | Token for API header authentication (empty = no auth)      | *(empty)*       |
+| API_TOKEN            | Token for API header authentication (not set = no auth)      | *(empty)*       |
 | API_TOKEN_HEADER_NAME| Name of the HTTP header for the API token                             | `X-API-Token`   |
 
 ---
@@ -154,8 +154,10 @@ icesecretread=YourSuperSecretMaximumSecurityCode
           label: channel
           format: text
 ```
->This is set inside homepage config `services.yaml` file or with docker auto discovery over labels
->`ip` and `port` inside `url` needs to be adapted on your use case
+>This is set inside homepage config `services.yaml` file or with docker auto discovery over labels.
+>`ip` and `port` inside `url` needs to be adapted to your use case
+
+----
 
 **You can also use [Automatic Service Discovery](https://gethomepage.dev/configs/docker/#automatic-service-discovery) labels with `docker-compose.yaml`:**
 ```yaml
@@ -213,9 +215,9 @@ This provides a preconfigured test environment with:
 - The API (as source/dev version)
 
 **Quick Start:**
-1. Open the repo in VS Code and follow the Dev Container prompts.
-2. Start the test environment with `docker-compose up`.
-3. Adjust `.env` or Compose environment as needed.
+1. Open the repo in VS Code and follow the Dev Container prompts (reopen in container).
+2. This should start the whole dev stack. If it doesn't start automatically, run `docker-compose` up manually.
+3. Adjust Compose environment as needed.
 
 ### **Updating the Slice file (if MumbleServer.ice changes)**
 
@@ -223,7 +225,7 @@ This provides a preconfigured test environment with:
 - Place it in the `app/interfaces` directory.
 - Generate/update the Python bindings with:
     ```bash
-    slice2py MumbleServer.ice
+    slice2py ./interfaces/MumbleServer.ice
     ```
 
 ---
@@ -249,7 +251,9 @@ Pull requests are highly appreciated!
 ## Links
 
 - **Repository:** [https://github.com/StrikzZ/mumble-homepage-api](https://github.com/StrikzZ/mumble-homepage-api)
+- **Releases:** [https://github.com/StrikzZ/mumble-homepage-api/releases](https://github.com/StrikzZ/mumble-homepage-api/releases)
 - **Issue tracker:** [https://github.com/StrikzZ/mumble-homepage-api/issues](https://github.com/StrikzZ/mumble-homepage-api/issues)
+- **DockerHub Image:** [https://hub.docker.com/r/strikzz/mumble-homepage-api](https://hub.docker.com/r/strikzz/mumble-homepage-api)
 - **Related projects:**
     - Mumble [(GitHub)](https://github.com/mumble-voip/mumble) [(official site)](https://www.mumble.info/)
     - Homepage [(GitHub)](https://github.com/gethomepage/homepage)[ (official site)](https://gethomepage.dev/)
