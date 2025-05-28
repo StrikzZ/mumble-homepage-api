@@ -8,7 +8,7 @@
 </p>
 
 <p align="center">
-  A lightweight, self-hosted RESTful Python API that exposes user and server data from a Mumble server using the ICE protocol.<br>
+  A lightweight, self-hosted Python API that exposes user and server data from a Mumble server using the ICE protocol.<br>
   Perfect as a backend for the <a href="https://gethomepage.dev/widgets/services/customapi/">Homepage Custom API Widget</a>.
 </p>
 

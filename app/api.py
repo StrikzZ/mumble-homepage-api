@@ -12,7 +12,7 @@ API_TOKEN_HEADER_NAME = os.getenv("API_TOKEN_HEADER_NAME", "X-API-Token")
 
 def check_api_token():
     if API_TOKEN:
-        token = request.headers.get("X-API-Token")
+        token = request.headers.get(API_TOKEN_HEADER_NAME)
         if token != API_TOKEN:
             abort(401)
 
