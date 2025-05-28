@@ -35,3 +35,11 @@ jobs:
           tags: |
             ${{ secrets.DOCKERHUB_USERNAME }}/mumble-homepage-api:latest
             ${{ secrets.DOCKERHUB_USERNAME }}/mumble-homepage-api:${{ env.TAG_NAME }}
+            
+      - name: Update Docker Hub Description
+        uses: peter-evans/dockerhub-description@v4
+        with:
+          username: ${{ secrets.DOCKERHUB_USERNAME }}
+          password: ${{ secrets.DOCKERHUB_TOKEN }}
+          repository: ${{ secrets.DOCKERHUB_USERNAME }}/mumble-homepage-api
+          short-description: ${{ github.event.repository.description }}
